@@ -13,9 +13,9 @@ function getInitialTodoStore() {
   return storedTodos ? JSON.parse(storedTodos) : []
 }
 
-const todos = writable<Todo[] | []>(getInitialTodoStore())
+const todosStore = writable<Todo[] | []>(getInitialTodoStore())
 
-todos.subscribe((value) => {
+todosStore.subscribe((value) => {
   console.log(value)
 
   if (window) {
@@ -24,4 +24,4 @@ todos.subscribe((value) => {
   }
 })
 
-export default todos
+export default todosStore
